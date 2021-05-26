@@ -17,7 +17,7 @@ services:
   dbdata:
     image: busybox
     volumes:
-      - /run/desktop/mnt/host/c/example_psql
+      - /var/lib/postgresql/data
   db:
     image: postgres:9.4
     volumes_from:
