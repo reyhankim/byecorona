@@ -1,0 +1,48 @@
+Get list of health protocol violations from a CCTV
+---
+tags:
+    - violation
+description: Get list of health protocol violations from a CCTV
+parameters:
+    - name: cctvId
+      in: path
+      required: true
+      description: unique ID of a CCTV
+      schema:
+      type: integer
+      format: int64
+      example: 1
+operationId: getViolations
+responses:
+    200:
+        description: OK
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        type: object
+                        properties:
+                            cctvId:
+                                type: integer
+                                format: int64
+                                example: 1
+                            violationList:
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        violationId:
+                                            type: integer
+                                            format: int64
+                                            example: 1
+                                        violationName:
+                                            type: string
+                                            example: 'Berkerumun'
+                                        isActionTaken:
+                                            type: boolean
+                                            example: true
+                                        actionId:
+                                            type: integer
+                                            format: int64
+                                            example: 1     
