@@ -1,0 +1,35 @@
+Get more details from a CCTV
+---
+tags:
+  - cctv
+parameters:
+  - name: cctvId
+    in: path
+    required: true
+    description: unique ID of a CCTV
+    schema:
+        type: integer
+        format: int64
+        example: 1
+operationId: getCctvDetails
+responses:
+  200:
+    description: OK
+    content:
+        application/json:
+            schema:
+              type: object
+              properties:
+                  cctvId:
+                      type: integer
+                      format: int64
+                      example: 1
+                  cctvName:
+                      type: string
+                      example: 'Istora Stadium - GBK'
+                  cctvLongitude:
+                      type: number
+                      example: 106.8057
+                  cctvLatitude:
+                      type: number
+                      example: -6.2202
