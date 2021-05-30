@@ -1,0 +1,60 @@
+Return list of clusters within an area
+---
+tags:
+    - cluster
+parameters:
+    - name: longitude
+      in: path
+      required: true
+      description: Longitude of an area of interest. In degrees. Positive means "Bujur Timur/E" where negative means "Bujur Barat/W".
+      schema:
+          type: number
+          example: 106.8018
+    - name: latitude
+      in: path
+      required: true
+      description: Latitude of an area of interest. In degrees. Positive means "Lintang Utara/N" where negative means "Lintang Selatan/S".
+      schema:
+          type: number
+          example: -6.2186
+    - name: radius
+      in: path
+      required: true
+      description: Radius of an area of interest, in metres
+      schema:
+          type: integer
+          format: int64
+          example: 500
+operationId: getClusterList
+responses:
+    200:
+        description: OK
+        content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                        type: object
+                        properties:
+                            clusterId:
+                                type: integer
+                                format: int64
+                                example: 123
+                            clusterName:
+                                type: string
+                                example: 'Gelora Bung Karno'
+                            cctvList:
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        cctvId:
+                                            type: integer
+                                            format: int64
+                                            example: 1
+                            clusterLongitude:
+                                type: number
+                                example: 106.8018
+                            clusterLatitude:
+                                type: number
+                                example: -6.2186
