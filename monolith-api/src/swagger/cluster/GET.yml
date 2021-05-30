@@ -1,0 +1,45 @@
+Get more details from a cluster
+---
+get:
+  tags:
+      - cluster
+  parameters:
+      - name: clusterId
+        in: path
+        required: true
+        description: unique ID of a cluster
+        schema:
+            type: integer
+            format: int64
+            example: 123
+  operationId: getClusterDetails
+  responses:
+      200:
+          description: OK
+          content:
+              application/json:
+                  schema:
+                    type: object
+                    properties:
+                      clusterId:
+                        type: integer
+                        format: int64
+                        example: 123
+                      clusterName:
+                        type: string
+                        example: 'Gelora Bung Karno'
+                      cctvList:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            cctvId:
+                                type: integer
+                                format: int64
+                                example: 1
+                      clusterLongitude:
+                          type: number
+                          example: 106.8018
+                      clusterLatitude:
+                          type: number
+                          example: -6.2186
