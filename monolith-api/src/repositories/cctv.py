@@ -1,4 +1,4 @@
-""" Defines the User repository """
+""" Defines the Cctv repository """
 
 from models import Cctv
 
