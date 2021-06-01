@@ -1,0 +1,50 @@
+Update violation details on database
+---
+tags:
+    - violation
+requestBody:
+    description: violation data to update
+    required: true
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    violationId:
+                        type: integer
+                        format: int64
+                        example: 1
+                    action:
+                        type: object
+                        properties:
+                            actionType:
+                                type: string
+                                example: 'MEGAPHONE_WARNING'
+                            actionTimestamp:
+                                type: integer
+                                format: int64
+                                example: 1621392652
+                            actionRemark:
+                                type: string
+                                example: 'Kerumunan bubar, tidak dibutuhkan aksi lebih lanjut'
+                            remarkTimestamp:
+                                type: integer
+                                format: int64
+                                example: 1621392652
+                            triggeredByUserId:
+                                type: integer
+                                format: int64
+                                example: 1
+operationId: updateViolation
+responses:
+    200:
+        description: OK
+        content:
+            application/json:
+                schema:
+                    type: object
+                    properties:
+                        violationId:
+                            type: integer
+                            format: int64
+                            example: 1

@@ -1,0 +1,39 @@
+Generate a new health protocol violation
+---
+tags:
+    - violation
+requestBody:
+    description: violation to add to the database.
+    required: true
+    content:
+        application/json:
+            schema:
+                type: object
+                properties:
+                    violationType:
+                        type: string
+                        example: 'SOCIAL_DISTANCING_VIOLATION'
+                    cctvId:
+                        type: integer
+                        format: int64
+                        example: 1
+                    violationTimestamp:
+                        type: integer
+                        format: int64
+                        example: 1621392652
+                    thumbnailPath:
+                        type: string
+                        example: '/thumbnail/example'
+operationId: createViolation
+responses:
+    200:
+        description: OK
+        content:
+            application/json:
+                schema:
+                    type: object
+                    properties:
+                        violationId:
+                            type: integer
+                            format: int64
+                            example: 1

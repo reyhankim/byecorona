@@ -1,0 +1,67 @@
+Get health protocol violations details
+---
+tags:
+    - violation
+parameters:
+    - name: violationId
+      in: path
+      required: true
+      description: unique ID of a violation
+      schema:
+          type: integer
+          format: int64
+          example: 1
+operationId: getViolationDetails
+responses:
+    200:
+        description: OK
+        content:
+            application/json:
+                schema:
+                    type: object
+                    properties:
+                        violationId:
+                            type: integer
+                            format: int64
+                            example: 1
+                        violationType:
+                            type: string
+                            example: 'SOCIAL_DISTANCING_VIOLATION'
+                        violationTimestamp:
+                            type: integer
+                            format: int64
+                            example: 1621392652
+                        cctvId:
+                            type: integer
+                            format: int64
+                            example: 1
+                        thumbnailPath:
+                            type: string
+                            example: '/thumbnail/example'
+                        isFalsePositive:
+                            type: boolean
+                            example: false
+                        isActionTaken:
+                            type: boolean
+                            example: true
+                        action:
+                            type: object
+                            properties:
+                                actionType:
+                                    type: string
+                                    example: 'MEGAPHONE_WARNING'
+                                actionTimestamp:
+                                    type: integer
+                                    format: int64
+                                    example: 1621392652
+                                actionRemark:
+                                    type: string
+                                    example: 'Kerumunan bubar, tidak dibutuhkan aksi lebih lanjut'
+                                remarkTimestamp:
+                                    type: integer
+                                    format: int64
+                                    example: 1621392652
+                                triggeredByUserId:
+                                    type: integer
+                                    format: int64
+                                    example: 1
