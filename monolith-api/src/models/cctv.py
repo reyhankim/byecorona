@@ -1,7 +1,6 @@
 """
 Define the User model
 """
-from repositories import cctv
 from . import db
 from .abc import BaseModel, MetaBaseModel
 
