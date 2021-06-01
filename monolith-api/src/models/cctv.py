@@ -17,7 +17,7 @@ class Cctv(db.Model, BaseModel, metaclass=MetaBaseModel):
     cctv_cluster_id = db.Column(db.Integer, nullable=False)
 
     def __init__(self, cctv_id, cctv_name, cctv_longitude, cctv_latitude, cctv_cluster_id):
-        """ Create a new User """
+        """ Create a new CCTV """
         self.cctv_id = cctv_id
         self.cctv_name = cctv_name
         self.cctv_longitude = cctv_longitude

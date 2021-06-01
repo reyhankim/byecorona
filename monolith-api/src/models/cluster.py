@@ -1,5 +1,5 @@
 """
-Define the User model
+Define the Cluster model
 """
 from . import db
 from .abc import BaseModel, MetaBaseModel
@@ -7,7 +7,7 @@ from geoalchemy2 import Geometry
 
 
 class Cluster(db.Model, BaseModel, metaclass=MetaBaseModel):
-    """ The User model """
+    """ The Cluster model """
 
     __tablename__ = "cluster"
 
@@ -26,6 +26,7 @@ class Cluster(db.Model, BaseModel, metaclass=MetaBaseModel):
         self.geo = geo
 
     def __repr__(self):
+        """ Added representation of each cluster with its coordinate """"
         return "<Cluster {name} ({lat}, {lon})>".format(
             name = self.cluster_name, 
             lat = self.cluster_latitude,

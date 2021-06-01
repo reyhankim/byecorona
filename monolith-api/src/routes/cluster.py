@@ -1,5 +1,5 @@
 """
-Defines the blueprint for the Cluster
+Defines the blueprint for the Cluster Details
 """
 from flask import Blueprint
 from flask_restful import Api
