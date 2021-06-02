@@ -26,7 +26,7 @@ class Cluster(db.Model, BaseModel, metaclass=MetaBaseModel):
         self.geo = geo
 
     def __repr__(self):
-        """ Added representation of each cluster with its coordinate """"
+        """ Added representation of each cluster with its coordinate """
         return "<Cluster {name} ({lat}, {lon})>".format(
             name = self.cluster_name, 
             lat = self.cluster_latitude,
