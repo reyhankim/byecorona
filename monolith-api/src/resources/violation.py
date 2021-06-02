@@ -19,7 +19,7 @@ class ViolationResource(Resource):
         Argument("violation_id", location="args", required=True, help="The unique ID of Violation")
     )
     @swag_from("../swagger/violation/GET.yml")
-    def getViolation(violation_id):
+    def get(violation_id):
         """ Return a violation by its id """
         violation = ViolationRepository.get(violation_id = violation_id)
         return jsonify({violation.json})

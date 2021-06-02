@@ -19,7 +19,7 @@ class ClusterResource(Resource):
         Argument("cluster_id", location="args", required=True, help="Unique ID of a cluster")
     )
     @swag_from("../swagger/cluster/GET.yml")
-    def getClusterById(cluster_id):
+    def get(cluster_id):
         """ Return cluster details of a cluster with specified unique ID """
         cluster = ClusterRepository.getClusterById(cluster_id = cluster_id)
         return jsonify({cluster.json})

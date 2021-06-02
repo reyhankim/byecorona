@@ -19,7 +19,7 @@ class CctvResource(Resource):
         Argument("cctv_id", location="args", required=True, help="The unique ID of CCTV")
     )
     @swag_from("../swagger/cctv/GET.yml")
-    def getCctvByClusterId(cctv_id):
+    def get(cctv_id):
         """ Return a cctv details based on its id """
         cctv = CctvRepository.get(cctv_id = cctv_id)
         return jsonify({cctv.json})
