@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "312353368903",
+    "project_id": "skilled-bonus-312709",
+    "storage_bucket": "skilled-bonus-312709.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312353368903:android:7f3ea0c1462edc0a193a62",
+        "android_client_info": {
+          "package_name": "com.dicoding.picodiploma.byecorona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312353368903-522sv6om37127sutnmmd1hkgesd408r0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAxpC4rF4cCs0ESj9C5szqwjyNKk1pwe4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312353368903-522sv6om37127sutnmmd1hkgesd408r0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
