@@ -21,5 +21,5 @@ class ViolationsResource(Resource):
     @swag_from("../swagger/violations/GET.yml")
     def get(cctv_id):
         """ Return violations on a cctv """
-        violations = ViolationRepository.getViolationByCctvId(cctv_id = cctv_id)
+        violations = ViolationRepository.getAllViolationByCctvId(cctv_id = cctv_id)
         return jsonify({violations.json})
