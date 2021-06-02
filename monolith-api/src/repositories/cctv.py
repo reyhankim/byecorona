@@ -7,7 +7,7 @@ class CctvRepository:
     """ The repository for the cctv model """
 
     @staticmethod
-    def getCctv(cctv_id):
+    def get(cctv_id):
         """ Query a cctv by its unique id """
         return Cctv.query.filter_by(cctv_id = cctv_id).one()
 
