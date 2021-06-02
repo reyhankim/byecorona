@@ -4,7 +4,7 @@ tags:
   - cctv
 parameters:
   - name: cctv_id
-    in: path
+    in: query
     required: true
     description: unique ID of a CCTV
     schema:

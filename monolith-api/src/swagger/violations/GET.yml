@@ -5,7 +5,7 @@ tags:
 description: Get list of health protocol violations from a CCTV
 parameters:
     - name: cctvId
-      in: path
+      in: query
       required: true
       description: unique ID of a CCTV
       schema:

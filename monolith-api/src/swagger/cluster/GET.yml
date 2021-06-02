@@ -4,7 +4,7 @@ tags:
     - cluster
 parameters:
     - name: cluster_id
-      in: path
+      in: query
       required: true
       description: unique ID of a cluster
       schema:

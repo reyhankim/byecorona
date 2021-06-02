@@ -4,7 +4,7 @@ tags:
     - violation
 parameters:
     - name: violation_id
-      in: path
+      in: query
       required: true
       description: unique ID of a health protocol violation
       schema:

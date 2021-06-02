@@ -4,7 +4,7 @@ tags:
     - violation
 parameters:
     - name: violation_id
-      in: path
+      in: query
       required: true
       description: unique ID of a violation
       schema:
@@ -35,7 +35,7 @@ responses:
                             type: integer
                             format: int64
                             example: 1
-                        thumbnail_path:
+                        thumbnail_query:
                             type: string
                             example: '/thumbnail/example'
                         is_false_positive:

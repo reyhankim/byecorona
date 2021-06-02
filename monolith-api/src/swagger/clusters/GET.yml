@@ -4,21 +4,21 @@ tags:
     - cluster
 parameters:
     - name: longitude
-      in: path
+      in: query
       required: true
       description: Longitude of an area of interest. In degrees. Positive means "Bujur Timur/E" where negative means "Bujur Barat/W".
       schema:
           type: number
           example: 106.8018
     - name: latitude
-      in: path
+      in: query
       required: true
       description: Latitude of an area of interest. In degrees. Positive means "Lintang Utara/N" where negative means "Lintang Selatan/S".
       schema:
           type: number
           example: -6.2186
     - name: radius
-      in: path
+      in: query
       required: true
       description: Radius of an area of interest, in metres
       schema:
