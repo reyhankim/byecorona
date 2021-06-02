@@ -3,7 +3,7 @@ Get more details from a CCTV
 tags:
   - cctv
 parameters:
-  - name: cctvId
+  - name: cctv_id
     in: path
     required: true
     description: unique ID of a CCTV
@@ -20,16 +20,20 @@ responses:
             schema:
               type: object
               properties:
-                  cctvId:
+                  cctv_id:
                       type: integer
                       format: int64
                       example: 1
-                  cctvName:
+                  cctv_name:
                       type: string
                       example: 'Istora Stadium - GBK'
-                  cctvLongitude:
+                  cctv_longitude:
                       type: number
                       example: 106.8057
-                  cctvLatitude:
+                  cctv_latitude:
                       type: number
                       example: -6.2202
+                  cctv_cluster_id:
+                      type: integer
+                      format: int64
+                      example: 1
