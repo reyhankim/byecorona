@@ -11,7 +11,7 @@ class Violation(db.Model, BaseModel, metaclass=MetaBaseModel):
 
     __tablename__ = "violation"
 
-    violation_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    violation_id = db.Column(db.Integer, primary_key=True)
     violation_type = db.Column(db.String(64), nullable=False)
     violation_timestamp = db.Column(db.BigInteger, nullable=False)
     cctv_id = db.Column(db.Integer, db.ForeignKey('cctv.cctv_id'), nullable=False)
@@ -25,13 +25,12 @@ class Violation(db.Model, BaseModel, metaclass=MetaBaseModel):
     action_by = db.column(db.String(64))
 
 
-    def __init__(self, violation_id, violation_type, violation_timestamp, 
+    def __init__(self, violation_type, violation_timestamp, 
                         cctv_id, thumbnail_path, is_false_positive = False, 
                         is_action_taken = False, action_type = None, 
                         action_timestamp = None, action_remark = None,
                         remark_time = None, action_by = None):
         """ Create a new Violation """
-        self.violation_id = violation_id
         self.violation_type = violation_type
         self.violation_timestamp = violation_timestamp
         self.cctv_id = cctv_id
