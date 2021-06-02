@@ -6,37 +6,37 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.byecorona.R
+import com.dicoding.picodiploma.byecorona.data.model.Cluster
 import com.dicoding.picodiploma.byecorona.databinding.ActivityMapBinding
 import com.dicoding.picodiploma.byecorona.databinding.NavHeaderMainBinding
 import com.dicoding.picodiploma.byecorona.ui.home.DetailCCTVFragment.Companion.ID_CLUSTER
 import com.dicoding.picodiploma.byecorona.ui.notification.NotificationActivity
 import com.dicoding.picodiploma.byecorona.viewmodel.ViewModelFactory
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.mancj.materialsearchbar.MaterialSearchBar
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener, MaterialSearchBar.OnSearchActionListener {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener, MaterialSearchBar.OnSearchActionListener,
+    GoogleMap.OnMarkerClickListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var activityMapBinding: ActivityMapBinding
     private lateinit var navHeaderMainBinding: NavHeaderMainBinding
     private lateinit var viewModel: MapViewModel
+    private lateinit var markerMap: HashMap<Marker, Cluster>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +45,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNa
         navHeaderMainBinding = NavHeaderMainBinding.bind(activityMapBinding.navView.getHeaderView(0))
         setContentView(activityMapBinding.root)
 
-        FirebaseAuth.getInstance().currentUser?.getIdToken(true)
-            ?.addOnCompleteListener {
-                if (it.isSuccessful) {
-                    val idToken = it.result?.token
-                    Log.d("haha", idToken.toString())
-                }
-            }
+        markerMap = HashMap()
 
         FirebaseMessaging.getInstance().subscribeToTopic("news")
 
@@ -91,20 +85,23 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNa
 
         viewModel.getListCluster().observe(this, { cluster ->
             for (clt in cluster) {
-                mMap.addMarker(MarkerOptions().position(LatLng(clt.clusterLatitude!!, clt.clusterLongitude!!)).title(clt.clusterName))
-                    .setIcon(bitmapFromVector(applicationContext, R.drawable.ic_videocam_blue_24px))
-                mMap.setOnMarkerClickListener {
-                    val sheet = DetailCCTVFragment()
-                    val bundle = Bundle()
-                    bundle.putParcelable(ID_CLUSTER, clt)
-                    sheet.arguments = bundle
-                    sheet.show(supportFragmentManager, "DetailCCTVFragment")
-                    true
-                }
+                addMarker(clt)
             }
         })
 
+        mMap
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(jakarta))
+
+        mMap.setOnMarkerClickListener(this)
+
+    }
+
+    private fun addMarker(cluster: Cluster) {
+        val clusterMarker = mMap.addMarker(MarkerOptions().position(LatLng(cluster.clusterLatitude!!, cluster.clusterLongitude!!)).title(cluster.clusterName))
+        clusterMarker.setIcon(bitmapFromVector(applicationContext, R.drawable.ic_videocam_blue_24px))
+
+        markerMap[clusterMarker] = cluster
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -149,5 +146,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNa
 
         navHeaderMainBinding.tvEmail.text = Firebase.auth.currentUser?.email
         navHeaderMainBinding.tvName.text = Firebase.auth.currentUser?.displayName
+    }
+
+    override fun onMarkerClick(p0: Marker): Boolean {
+        val clt = markerMap[p0]
+        val sheet = DetailCCTVFragment()
+        val bundle = Bundle()
+        bundle.putParcelable(ID_CLUSTER, clt)
+        sheet.arguments = bundle
+        sheet.show(supportFragmentManager, "DetailCCTVFragment")
+        return false
     }
 }
