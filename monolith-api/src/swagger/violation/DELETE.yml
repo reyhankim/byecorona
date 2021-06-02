@@ -3,7 +3,7 @@ Flag a health protocol violation as false-positive\
 tags:
     - violation
 parameters:
-    - name: violationId
+    - name: violation_id
       in: path
       required: true
       description: unique ID of a health protocol violation
@@ -20,7 +20,7 @@ responses:
                 schema:
                     type: object
                     properties:
-                        violationId:
+                        violation_id:
                             type: integer
                             format: int64
                             example: 1

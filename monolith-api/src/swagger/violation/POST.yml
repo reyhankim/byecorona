@@ -10,18 +10,18 @@ requestBody:
             schema:
                 type: object
                 properties:
-                    violationType:
+                    violation_type:
                         type: string
                         example: 'SOCIAL_DISTANCING_VIOLATION'
-                    cctvId:
+                    cctv_id:
                         type: integer
                         format: int64
                         example: 1
-                    violationTimestamp:
+                    violation_timestamp:
                         type: integer
                         format: int64
                         example: 1621392652
-                    thumbnailPath:
+                    thumbnail_path:
                         type: string
                         example: '/thumbnail/example'
 operationId: createViolation
@@ -33,7 +33,7 @@ responses:
                 schema:
                     type: object
                     properties:
-                        violationId:
+                        violation_id:
                             type: integer
                             format: int64
                             example: 1

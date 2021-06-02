@@ -3,7 +3,7 @@ Get health protocol violations details
 tags:
     - violation
 parameters:
-    - name: violationId
+    - name: violation_id
       in: path
       required: true
       description: unique ID of a violation
@@ -20,48 +20,48 @@ responses:
                 schema:
                     type: object
                     properties:
-                        violationId:
+                        violation_id:
                             type: integer
                             format: int64
                             example: 1
-                        violationType:
+                        violation_type:
                             type: string
                             example: 'SOCIAL_DISTANCING_VIOLATION'
-                        violationTimestamp:
+                        violation_timestamp:
                             type: integer
                             format: int64
                             example: 1621392652
-                        cctvId:
+                        cctv_id:
                             type: integer
                             format: int64
                             example: 1
-                        thumbnailPath:
+                        thumbnail_path:
                             type: string
                             example: '/thumbnail/example'
-                        isFalsePositive:
+                        is_false_positive:
                             type: boolean
                             example: false
-                        isActionTaken:
+                        is_action_taken:
                             type: boolean
                             example: true
                         action:
                             type: object
                             properties:
-                                actionType:
+                                action_type:
                                     type: string
                                     example: 'MEGAPHONE_WARNING'
-                                actionTimestamp:
+                                action_timestamp:
                                     type: integer
                                     format: int64
                                     example: 1621392652
-                                actionRemark:
+                                action_remark:
                                     type: string
                                     example: 'Kerumunan bubar, tidak dibutuhkan aksi lebih lanjut'
-                                remarkTimestamp:
+                                remark_timestamp:
                                     type: integer
                                     format: int64
                                     example: 1621392652
-                                triggeredByUserId:
+                                action_by:
                                     type: integer
                                     format: int64
                                     example: 1
