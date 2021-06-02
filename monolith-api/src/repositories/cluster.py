@@ -11,7 +11,7 @@ class ClusterRepository:
     def getClustersByLocation(reference_long, reference_lat, radius):
         """ Query clusters by its location represented in GoogleMaps longitude and latitude """
         reference_geo = 'POINT({} {})'.format(reference_long, reference_lat)
-        return Cluster.query.filter_by(func.ST_Distance_Sphere(Cluster.geo, reference_geo) < radius).all()
+        return Cluster.query.filter_by(func.ST_DistanceSphere(Cluster.geo, reference_geo) < radius).all()
 
     @staticmethod
     def getClusterById(cluster_id):

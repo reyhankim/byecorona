@@ -3,7 +3,7 @@ Get more details from a cluster
 tags:
     - cluster
 parameters:
-    - name: clusterId
+    - name: cluster_id
       in: path
       required: true
       description: unique ID of a cluster
@@ -20,25 +20,25 @@ responses:
                 schema:
                   type: object
                   properties:
-                    clusterId:
+                    cluster_id:
                       type: integer
                       format: int64
                       example: 123
-                    clusterName:
+                    cluster_name:
                       type: string
                       example: 'Gelora Bung Karno'
-                    cctvList:
+                    cctv_list:
                       type: array
                       items:
                         type: object
                         properties:
-                          cctvId:
+                          cctv_id:
                               type: integer
                               format: int64
                               example: 1
-                    clusterLongitude:
+                    cluster_longitude:
                         type: number
                         example: 106.8018
-                    clusterLatitude:
+                    cluster_latitude:
                         type: number
                         example: -6.2186
