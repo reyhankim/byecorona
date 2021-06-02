@@ -16,3 +16,4 @@ setproctitle==1.1.10
 six==1.12.0
 geoalchemy2
 flask-cors
+python-dotenv
