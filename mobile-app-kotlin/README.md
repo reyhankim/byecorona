@@ -11,7 +11,7 @@
 
 Clone or Download and Open it into Android Studio
 ```
-    https://github.com/Adithya-13/MadeSubmsission.git
+    https://github.com/reyhankim/byecorona.git
 ```  
 ## Screenshot
 
