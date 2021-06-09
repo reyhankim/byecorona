@@ -18,6 +18,7 @@ Follow README.md on each components for guide on installing
 Follow README.md on each components for guide on executing
 
 ## Authors
+Our team consists of members from Android App Development and Cloud Computing learning path at Bangkit 2021. We are missing of all Machine Learning members as they withdrawed and unreachable:
 * Ajeng Savitrie (A2612428) 
 * Ida Bagus Weda Baskara Adi Putra (A0141373)
 * Reyhan Naufal Hakim (C0020092) 
