@@ -23,8 +23,7 @@ You will need [docker](https://docs.docker.com/engine/installation/) and [docker
 First, clone the project:
 
 ```bash
-$ git clone https://github.com/antkahn/flask-api-starter-kit.git <my-project-name>
-$ cd <my-project-name>
+$ git clone https://github.com/reyhankim/byecorona.git
 ```
 
 Then install dependencies and check that it works
