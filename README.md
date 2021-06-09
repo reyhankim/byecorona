@@ -19,10 +19,10 @@ Follow README.md on each components for guide on executing
 
 ## Authors
 Our team consists of members from Android App Development and Cloud Computing learning path at Bangkit 2021. We are missing of all Machine Learning members as they withdrawed and unreachable:
-* Ajeng Savitrie (A2612428) 
-* Ida Bagus Weda Baskara Adi Putra (A0141373)
-* Reyhan Naufal Hakim (C0020092) 
-* Zakia Azzahro (C2582421)
+* Ajeng Savitrie (A2612428) - Android App Learning Path
+* Ida Bagus Weda Baskara Adi Putra (A0141373) - Android App Learning Path
+* Reyhan Naufal Hakim (C0020092) - Cloud Computing Learning Path
+* Zakia Azzahro (C2582421) - Cloud Computing Learning Path
 
 ## License
 This project is licensed under the GNU GPL v3 License - see the LICENSE.md file for details
