@@ -9,54 +9,19 @@ CCTVs on public areas will be equipped with Machine Learning model that detects 
 ## Getting Started
 
 ### Dependencies
-
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+Follow README.md on each components for guide on dependencies
 
 ### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+Follow README.md on each components for guide on installing
 
 ### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+Follow README.md on each components for guide on executing
 
 ## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+Ajeng Savitrie (A2612428) 
+Ida Bagus Weda Baskara Adi Putra (A0141373)
+Reyhan Naufal Hakim (C0020092) 
+Zakia Azzahro (C2582421)
 
 ## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+This project is licensed under the GNU GPL v3 License - see the LICENSE.md file for details
