@@ -10,6 +10,9 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.dicoding.picodiploma.byecorona.R
 import com.dicoding.picodiploma.byecorona.ui.home.MapActivity
+import com.dicoding.picodiploma.byecorona.ui.hpv.DetailHPVActivity
+import com.dicoding.picodiploma.byecorona.ui.hpv.DetailHPVActivity.Companion.DATA
+import com.dicoding.picodiploma.byecorona.utils.DataDummy
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -30,7 +33,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val channelId = getString(R.string.default_notification_channel_id)
         val channelName = getString(R.string.default_notification_channel_name)
 
-        val intent = Intent(this, MapActivity::class.java)
+        val intent = Intent(this, DetailHPVActivity::class.java)
+        intent.putExtra(DATA, DataDummy.generateDummyViolations()[0])
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent,
             PendingIntent.FLAG_ONE_SHOT)

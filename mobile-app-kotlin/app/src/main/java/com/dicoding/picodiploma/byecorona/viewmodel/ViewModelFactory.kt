@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.picodiploma.byecorona.data.ByeCoronaRepository
 import com.dicoding.picodiploma.byecorona.di.Injection
+import com.dicoding.picodiploma.byecorona.ui.cctv.CCTVViewModel
 import com.dicoding.picodiploma.byecorona.ui.home.MapViewModel
 
 class ViewModelFactory private constructor(private val mByeCoronaRepository: ByeCoronaRepository) : ViewModelProvider.NewInstanceFactory() {
@@ -25,6 +26,9 @@ class ViewModelFactory private constructor(private val mByeCoronaRepository: Bye
         return when {
             modelClass.isAssignableFrom(MapViewModel::class.java) -> {
                 MapViewModel(mByeCoronaRepository) as T
+            }
+            modelClass.isAssignableFrom(CCTVViewModel::class.java) -> {
+                CCTVViewModel(mByeCoronaRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

@@ -58,6 +58,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
     implementation 'com.github.clans:fab:1.6.4'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
+    implementation 'com.github.andreseko:sweet-alert-dialog:1.0.6'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
