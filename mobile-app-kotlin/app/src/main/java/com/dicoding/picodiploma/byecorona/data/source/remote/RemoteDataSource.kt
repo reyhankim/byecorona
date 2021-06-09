@@ -2,6 +2,7 @@ package com.dicoding.picodiploma.byecorona.data.source.remote
 
 import android.util.Log
 import com.dicoding.picodiploma.byecorona.data.source.remote.api.ApiConfig
+import com.dicoding.picodiploma.byecorona.data.source.remote.response.CCTVResponse
 import com.dicoding.picodiploma.byecorona.data.source.remote.response.ClusterResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,7 +32,30 @@ class RemoteDataSource {
         })
     }
 
+    fun getListCCTV(callback: LoadCCTVResponse) {
+        val client = ApiConfig.getApiService().getCCTVDetail()
+        client.enqueue(object : Callback<CCTVResponse> {
+            override fun onResponse(call: Call<CCTVResponse>, response: Response<CCTVResponse>) {
+                if (response.isSuccessful) {
+                    val cctvResponse = response.body()
+                    if (cctvResponse != null) {
+                        callback.onAllCCTVReceived(cctvResponse)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<CCTVResponse>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
     interface LoadClusterResponse {
         fun onAllClusterReceived(clusterResponse: List<ClusterResponse>)
+    }
+
+    interface LoadCCTVResponse {
+        fun onAllCCTVReceived(cctvResponse: CCTVResponse)
     }
 }
