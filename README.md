@@ -18,10 +18,10 @@ Follow README.md on each components for guide on installing
 Follow README.md on each components for guide on executing
 
 ## Authors
--Ajeng Savitrie (A2612428) 
--Ida Bagus Weda Baskara Adi Putra (A0141373)
--Reyhan Naufal Hakim (C0020092) 
--Zakia Azzahro (C2582421)
+* Ajeng Savitrie (A2612428) 
+* Ida Bagus Weda Baskara Adi Putra (A0141373)
+* Reyhan Naufal Hakim (C0020092) 
+* Zakia Azzahro (C2582421)
 
 ## License
 This project is licensed under the GNU GPL v3 License - see the LICENSE.md file for details
