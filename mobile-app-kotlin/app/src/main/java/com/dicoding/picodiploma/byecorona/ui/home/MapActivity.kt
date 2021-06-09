@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -15,7 +16,8 @@ import com.dicoding.picodiploma.byecorona.R
 import com.dicoding.picodiploma.byecorona.data.model.Cluster
 import com.dicoding.picodiploma.byecorona.databinding.ActivityMapBinding
 import com.dicoding.picodiploma.byecorona.databinding.NavHeaderMainBinding
-import com.dicoding.picodiploma.byecorona.ui.home.DetailCCTVFragment.Companion.ID_CLUSTER
+import com.dicoding.picodiploma.byecorona.ui.home.DetailCCTVFragment.Companion.DATA_CLUSTER
+import com.dicoding.picodiploma.byecorona.ui.login.LoginActivity
 import com.dicoding.picodiploma.byecorona.ui.notification.NotificationActivity
 import com.dicoding.picodiploma.byecorona.viewmodel.ViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -28,6 +30,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.mancj.materialsearchbar.MaterialSearchBar
+import kotlin.system.exitProcess
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener, MaterialSearchBar.OnSearchActionListener,
     GoogleMap.OnMarkerClickListener {
@@ -62,6 +65,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNa
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        activityMapBinding.appBarMain.searchBar.isSuggestionsEnabled = false
+
         activityMapBinding.appBarMain.icNotification.setOnClickListener {
             val intent = Intent(this, NotificationActivity::class.java)
             startActivity(intent)
@@ -69,6 +74,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNa
 
         activityMapBinding.btnLogout.setOnClickListener {
             Firebase.auth.signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
@@ -109,19 +116,28 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNa
     }
 
     override fun onSearchStateChanged(enabled: Boolean) {
-
+        Log.d(enabled.toString(), "onSearchStateChanged: ")
+        if (enabled) {
+            val fm = supportFragmentManager
+            val transaction = fm.beginTransaction()
+            transaction.replace(R.id.map, SearchFragment()).addToBackStack(null).commit()
+        } else {
+            supportFragmentManager.popBackStack()
+        }
     }
 
     override fun onSearchConfirmed(text: CharSequence?) {
-
+        Log.d("2", "onSearchStateChanged: ")
     }
 
     override fun onButtonClicked(buttonCode: Int) {
         when (buttonCode) {
-
             MaterialSearchBar.BUTTON_NAVIGATION -> {
                 activityMapBinding.drawerLayout.openDrawer(GravityCompat.START)
             }
+//            MaterialSearchBar.BUTTON_BACK -> {
+//                supportFragmentManager.popBackStack()
+//            }
         }
     }
 
@@ -152,9 +168,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, NavigationView.OnNa
         val clt = markerMap[p0]
         val sheet = DetailCCTVFragment()
         val bundle = Bundle()
-        bundle.putParcelable(ID_CLUSTER, clt)
+        bundle.putParcelable(DATA_CLUSTER, clt)
         sheet.arguments = bundle
         sheet.show(supportFragmentManager, "DetailCCTVFragment")
         return false
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

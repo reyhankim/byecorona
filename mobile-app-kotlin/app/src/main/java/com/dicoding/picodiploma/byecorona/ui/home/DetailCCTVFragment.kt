@@ -3,7 +3,6 @@ package com.dicoding.picodiploma.byecorona.ui.home
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,6 @@ import android.widget.TextView
 import com.andrefrsousa.superbottomsheet.SuperBottomSheetFragment
 import com.dicoding.picodiploma.byecorona.R
 import com.dicoding.picodiploma.byecorona.data.model.Cluster
-import com.dicoding.picodiploma.byecorona.databinding.FragmentDetailCctvBinding
 import com.dicoding.picodiploma.byecorona.ui.cctv.ListCCTVActivity
 
 class DetailCCTVFragment : SuperBottomSheetFragment() {
@@ -27,9 +25,9 @@ class DetailCCTVFragment : SuperBottomSheetFragment() {
         if (activity != null) {
             if (arguments != null) {
                 view.findViewById<TextView>(R.id.textView4).text = arguments!!.getParcelable<Cluster>(
-                    ID_CLUSTER)!!.clusterName
+                    DATA_CLUSTER)!!.clusterName
                 view.findViewById<TextView>(R.id.textView3).text = arguments!!.getParcelable<Cluster>(
-                    ID_CLUSTER)!!.cctvList!!.size.toString()
+                    DATA_CLUSTER)!!.cctvList!!.size.toString()
                 view.findViewById<Button>(R.id.btn_cctv).setBackgroundColor(Color.parseColor("#007EFF"))
                 view.findViewById<Button>(R.id.btn_cctv).setOnClickListener {
                     val intent = Intent(context, ListCCTVActivity::class.java)
@@ -45,6 +43,6 @@ class DetailCCTVFragment : SuperBottomSheetFragment() {
     }
 
     companion object {
-        const val ID_CLUSTER = "id_cluster"
+        const val DATA_CLUSTER = "data_cluster"
     }
 }

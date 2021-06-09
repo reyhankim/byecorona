@@ -17,7 +17,7 @@
         <com.mancj.materialsearchbar.MaterialSearchBar
             style="@style/MaterialSearchBarLight"
             app:mt_speechMode="false"
-            app:mt_hint="Search a cctv"
+            app:mt_hint="Cari cctv"
             app:mt_maxSuggestionsCount="10"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,7 +26,8 @@
             app:mt_navIconEnabled="true"
             android:elevation="5dp"
             android:layout_weight="1"
-            app:mt_placeholder="Search a cctv"/>
+            
+            app:mt_placeholder="Cari cctv"/>
 
         <ImageView
             android:id="@+id/ic_notification"

@@ -1,10 +1,12 @@
 package com.dicoding.picodiploma.byecorona.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dicoding.picodiploma.byecorona.data.model.CCTV
 import com.dicoding.picodiploma.byecorona.data.model.Cluster
 import com.dicoding.picodiploma.byecorona.data.source.remote.RemoteDataSource
+import com.dicoding.picodiploma.byecorona.data.source.remote.response.CCTVResponse
 import com.dicoding.picodiploma.byecorona.data.source.remote.response.CctvListItem
 import com.dicoding.picodiploma.byecorona.data.source.remote.response.ClusterResponse
 
@@ -44,6 +46,31 @@ class ByeCoronaRepository private constructor(private val remoteDataSource: Remo
         })
 
         return clusterResult
+    }
+
+    override fun getListCCTV(listCCTV: List<CCTV>): LiveData<List<CCTV>> {
+
+        val cctvResult = MutableLiveData<List<CCTV>>()
+
+        val cctvList = ArrayList<CCTV>()
+        for (cctv in listCCTV) {
+            remoteDataSource.getListCCTV(object : RemoteDataSource.LoadCCTVResponse {
+                override fun onAllCCTVReceived(cctvResponse: CCTVResponse) {
+                    val cctv = CCTV(
+                        cctvResponse.cctvId,
+                        cctvResponse.cctvName,
+                        cctvResponse.cctvLongitude,
+                        cctvResponse.cctvLatitude
+                    )
+                    Log.d("hoho", cctv.toString())
+                    cctvList.add(cctv)
+                    cctvResult.postValue(cctvList)
+                }
+            })
+        }
+        Log.d("hoho", "getListCCTV: ")
+
+        return cctvResult
     }
 
     fun mapResponsesCCTV(input: List<CctvListItem?>?): List<CCTV> {

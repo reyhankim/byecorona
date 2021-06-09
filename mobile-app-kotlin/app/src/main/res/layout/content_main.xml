@@ -8,6 +8,11 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+<!--    <fragment-->
+<!--        android:id="@+id/seach_bar_fr"-->
+<!--        android:name="com.dicoding.picodiploma.byecorona.ui.home.SearchFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
     <fragment
         xmlns:map="http://schemas.android.com/apk/res-auto"
         android:id="@+id/map"
