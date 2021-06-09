@@ -35,8 +35,6 @@ $ make server.start        # Run the container containing your local python serv
 
 If everything works, you should see the available routes [here](http://127.0.0.1:3000/application/spec).
 
-The API runs locally on docker containers. You can easily change the python version you are willing to use [here](https://github.com/antkahn/flask-api-starter-kit/blob/master/docker-compose.yml#L4), by fetching a docker image of the python version you want.
-
 ## Commands
 
 You can display availables make commands using `make`.
@@ -71,7 +69,7 @@ Locally, you can connect to your database using :
 $ make database.connect
 ```
 
-However, you will need before using this command to change the docker database container's name [here](https://github.com/antkahn/flask-api-starter-kit/blob/master/package.json#L6).
+However, you will need before using this command to change the docker database container's name.
 
 This kit contains a built in database versioning using [alembic](https://pypi.python.org/pypi/alembic).
 Once you've changed your models, which should reflect your database's state, you can generate the migration, then upgrade or downgrade your database as you want. See [Commands](#commands) for more information.
